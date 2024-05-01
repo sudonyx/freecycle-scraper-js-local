@@ -1606,44 +1606,6 @@
       "tags": []
     },
     {
-      "id": 95827808,
-      "userId": 25773092,
-      "subject": "King size mattress ",
-      "location": "Dorking",
-      "description": "Dansk International Backcare high quality mattress - used but clean - yours if you want it.\r\n",
-      "isApproved": 1,
-      "rejectReason": null,
-      "date": "2024-04-27",
-      "time": "15:58:22",
-      "type": {
-        "typeId": 1,
-        "const": "FC_POST_OFFER",
-        "name": "OFFER"
-      },
-      "group": {
-        "id": 1664,
-        "name": "Sutton",
-        "uniqueName": "SuttonUK",
-        "region": {
-          "id": 240,
-          "name": "London",
-          "country": {
-            "id": 2,
-            "name": "United Kingdom"
-          }
-        },
-        "latitude": 51.3614,
-        "longitude": -0.193961,
-        "timezone": "Europe/London"
-      },
-      "static": null,
-      "image": null,
-      "thumb": null,
-      "images": [],
-      "thumbs": [],
-      "tags": []
-    },
-    {
       "id": 95827770,
       "userId": 26408112,
       "subject": "Beautiful handmade blinds",
