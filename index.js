@@ -1,5 +1,6 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
+require('dotenv').config()
 const https = require('https');
 const fs = require('fs');
 const nodemailer = require("nodemailer");
@@ -58,18 +59,18 @@ const req = https.request(options, (res) => {
 
         // create SMTP transport
         const transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
+            host: 'smtp-mail.outlook.com',
             port: 587,
             auth: {
-                user: 'matilda.funk@ethereal.email',
-                pass: 'QegJmC1yhFE2xKGbn3'
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD
             }
         });
 
         // configure email and send
         async function main() {
             const info = await transporter.sendMail({
-                from: 'Matilda Funk <matilda.funk@ethereal.email>',
+                from: `Freecycle Scraper <${process.env.EMAIL}>`,
                 to: 'jcwills369@gmail.com',
                 subject: `Freecycle search for ${searchItem}`,
                 html: emailHtml
@@ -80,15 +81,13 @@ const req = https.request(options, (res) => {
 
         main().catch(console.error)
         
-        // const jsonString = JSON.stringify(fcData, null, 2);
-
-        // fs.writeFile('./fc-data.json', jsonString, err => {
-        //     if (err) {
-        //         console.log('Error writing file', err)
-        //     } else {
-        //         console.log('Successfully wrote file')
-        //     }
-        // });
+        // write fc-data to json file
+        const jsonString = JSON.stringify(fcData, null, 2);
+        fs.writeFile('./fc-data.json', jsonString, err => {
+            if (err) {
+                console.log(err)
+            }
+        });
     });
 });
 
